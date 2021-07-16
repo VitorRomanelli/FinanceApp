@@ -1,5 +1,10 @@
 # financeapp
 
+
+Gráficos indicando rentabilidade em diferentes taxas
+Tabela indicando rentabilidade, valores mensalmente e anualmente
+Descritivo no inicio
+
 ## Project setup
 ```
 yarn install
