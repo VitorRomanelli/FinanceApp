@@ -1,28 +1,42 @@
 # financeapp
 
+## Guia para rodar o projeto
 
-Gráficos indicando rentabilidade em diferentes taxas
-Tabela indicando rentabilidade, valores mensalmente e anualmente
-Descritivo no inicio
-
-## Project setup
+### Instalar dependências
 ```
 yarn install
+
+ou
+
+npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar e rodar o projeto
+
 ```
 yarn serve
+
+ou 
+
+npm run serve
 ```
 
-### Compiles and minifies for production
+### Buildar para produção
 ```
 yarn build
+
+ou
+
+npm build
 ```
 
-### Lints and fixes files
+### Consertar e identar código
 ```
 yarn lint
+
+ou
+
+npm lint
 ```
 
 ### Customize configuration
