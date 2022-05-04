@@ -59,24 +59,24 @@
 </style>
 
 <script>
-import api from '../services/api';
-import Header from '../components/Header.vue';
-import ValueList from '../components/ValueList.vue';
-import Form from '../components/Form.vue';
-import HorizontalChart from '../components/Charts/HorizontalChart.vue';
-import MarksCard from '../components/MarksCard.vue';
-import SalaryDivision from '../components/SalaryDivision.vue';
+import api from "../services/api";
+import Header from "../components/Header.vue";
+import ValueList from "../components/ValueList.vue";
+import Form from "../components/Form.vue";
+import HorizontalChart from "../components/Charts/HorizontalChart.vue";
+import MarksCard from "../components/MarksCard.vue";
+import SalaryDivision from "../components/SalaryDivision.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
 
   async created() {
-    if (localStorage.getItem('data') == null) {
+    if (localStorage.getItem("data") == null) {
       await this.searchData();
     } else {
-      this.data = JSON.parse(localStorage.getItem('data'));
-      this.taxes = JSON.parse(localStorage.getItem('taxes'));
-      this.tax = this.taxes.find((tax) => tax.name === 'Selic');
+      this.data = JSON.parse(localStorage.getItem("data"));
+      this.taxes = JSON.parse(localStorage.getItem("taxes"));
+      this.tax = this.taxes.find((tax) => tax.name === "Selic");
     }
   },
 
@@ -114,55 +114,55 @@ export default {
 
     async searchData() {
       await api
-        .get('https://api.hgbrasil.com/finance?format=json-cors&key=c9715368')
+        .get("https://api.hgbrasil.com/finance?format=json-cors&key=7e3b3ed9")
         .then((response) => {
           this.data = response.data;
           this.data.results.taxes.map((tax) => {
             this.taxes.push({
-              name: 'NuBank',
+              name: "NuBank",
               tax: tax.cdi,
-              background: '#820ad1',
+              background: "#820ad1",
               selected: false,
             });
             this.taxes.push({
-              name: 'Selic',
+              name: "Selic",
               tax: tax.selic,
-              background: '#00427a',
+              background: "#00427a",
               selected: true,
             });
             return 0;
           });
 
           this.taxes.push({
-            name: 'PicPay',
+            name: "PicPay",
             tax: this.data.results.taxes[0].cdi * 1.3,
-            background: '#11c76f',
+            background: "#11c76f",
             selected: false,
           });
 
           this.taxes.push({
-            name: 'C6',
+            name: "C6",
             tax: this.data.results.taxes[0].cdi * 1.02,
-            background: '#bdc183',
+            background: "#bdc183",
             selected: false,
           });
 
           this.taxes.push({
-            name: 'Next',
+            name: "Next",
             tax: this.data.results.taxes[0].cdi * 2.0,
-            background: '#00ff5f',
+            background: "#00ff5f",
             selected: false,
           });
 
           this.taxes.push({
-            name: 'Pan',
+            name: "Pan",
             tax: this.data.results.taxes[0].cdi * 1.03,
-            background: '#039be5',
+            background: "#039be5",
             selected: false,
           });
 
-          localStorage.setItem('data', JSON.stringify(this.data));
-          localStorage.setItem('taxes', JSON.stringify(this.taxes));
+          localStorage.setItem("data", JSON.stringify(this.data));
+          localStorage.setItem("taxes", JSON.stringify(this.taxes));
         });
     },
   },
